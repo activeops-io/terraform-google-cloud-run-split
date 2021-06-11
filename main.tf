@@ -79,29 +79,13 @@ resource "google_cloud_run_service" "default" {
     }
   }
 
-  dynamic "trafficsplit_true" {
-    for_each = count(var.traffic_split == "true" ? 1 : 0)
-    content {
-      traffic {
-        percent       = var.percentages["green"].percent
-        revision_name = "${var.name}-${var.percentages["green"].revision}"
-      }
-      traffic {
-        percent       = var.percentages["blue"].percent
-        revision_name = "${var.name}-${var.percentages["blue"].revision}"
-      }
-    }
+  traffic {
+    percent       = var.percentages["green"].percent
+    revision_name = "${var.name}-${var.percentages["green"].revision}"
   }
-
-  dynamic "trafficsplit_false" {
-    for_each = count(var.traffic_split == "false" ? 1 : 0)
-    content {
-      traffic {
-        percent = 100
-        latest_revision = var.revision == null
-        revision_name = var.revision != null ? "${var.name}-${var.revision}" : null
-      }
-    }
+  traffic {
+    percent       = var.percentages["blue"].percent
+    revision_name = "${var.name}-${var.percentages["blue"].revision}"
   }
 }
 
