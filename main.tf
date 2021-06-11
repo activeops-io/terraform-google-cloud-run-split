@@ -62,7 +62,6 @@ resource "google_cloud_run_service" "default" {
     }
 
     metadata {
-      name   = var.percentages["green"].revision
       labels = var.labels
       annotations = merge(
         {
