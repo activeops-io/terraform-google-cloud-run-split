@@ -121,12 +121,6 @@ variable "ingress" {
   description = "Restrict network access to this service. Allowed values: [`all`, `internal`, `internal-and-cloud-load-balancing`]"
 }
 
-variable "autogenerate_revision_name" {
-  type = bool
-  default = false
-  description = "Automatically generate a suffix for the service name, defaults to false"
-}
-
 variable "percentages" {
   type = map(object({
     percent  = number
