@@ -5,7 +5,7 @@ data "google_project" "default" {
 resource "google_cloud_run_service" "default" {
   name                       = var.name
   location                   = var.location
-  autogenerate_revision_name = var.revision != null ? true : false
+  autogenerate_revision_name = false
   project                    = data.google_project.default.project_id
 
   metadata {
