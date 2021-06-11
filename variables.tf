@@ -136,5 +136,5 @@ variable "percentages" {
       revision = "blue"
     }
   }
-  description = "Percent of traffic sent to the new service, defaults to 0, blue is a pre-existing revision and must exist"
+  description = "Percent of traffic sent to the new service revision"
 }
