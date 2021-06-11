@@ -123,17 +123,17 @@ variable "ingress" {
 
 variable "percentages" {
   type = map(object({
-    percent       = number
-    revision_name = string
+    percent  = number
+    revision = string
   }))
   default = {
     green = {
-      percent       = 0
-      revision_name = "green"
+      percent  = 0
+      revision = "green"
     },
     blue = {
-      percent       = 100
-      revision_name = "blue"
+      percent  = 100
+      revision = "blue"
     }
   }
   description = "Percent of traffic sent to the new service, defaults to 0, blue is a pre-existing revision and must exist"

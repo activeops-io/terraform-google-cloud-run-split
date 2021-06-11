@@ -81,11 +81,11 @@ resource "google_cloud_run_service" "default" {
 
   traffic {
     percent       = var.percentages["green"].percent
-    revision_name = var.percentages["green"].revision_name
+    revision_name = "${var.name}-${var.percentages["green"].revision}"
   }
   traffic {
     percent       = var.percentages["blue"].percent
-    revision_name = var.percentages["blue"].revision_name
+    revision_name = "${var.name}-${var.percentages["blue"].revision}"
   }
 }
 
