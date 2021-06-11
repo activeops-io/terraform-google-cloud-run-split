@@ -121,6 +121,11 @@ variable "ingress" {
   description = "Restrict network access to this service. Allowed values: [`all`, `internal`, `internal-and-cloud-load-balancing`]"
 }
 
+variable "traffic_split" {
+  type = string
+  default = "false"
+}
+
 variable "percentages" {
   type = map(object({
     percent  = number
